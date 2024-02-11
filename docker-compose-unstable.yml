@@ -1,0 +1,58 @@
+version: '2'
+services:
+  postgres:
+    image: postgres
+    restart: unless-stopped
+    container_name: postgres
+    env_file:
+      - env/postgres.env
+      - env/general.env
+    ports:
+      - 5432:5432
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - dataPostgres:/var/lib/postgresql/data
+    hostname: postgres
+    networks:
+      - default
+
+  api:
+    image: kju7pwd2/clockin-apiservice:latest_DEV
+    restart: unless-stopped
+    container_name: apiService
+    ports:
+      - 3001:80
+      - 3002:443
+    env_file:
+      - env/api.env
+      - env/general.env
+    depends_on:
+      - postgres
+    hostname: api
+
+  web:
+    image: kju7pwd2/clockin-webservice:latest_DEV
+    restart: unless-stopped
+    container_name: web
+    env_file:
+      - env/web.env
+      - env/general.env
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+    hostname: web
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
+
+volumes:
+  dataPostgres:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/clockin/dataPostgres'

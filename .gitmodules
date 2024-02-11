@@ -1,0 +1,6 @@
+[submodule "BE-clock-in"]
+	path = BE-clock-in
+	url = https://github.com/cesxhin/BE-clock-in.git
+[submodule "FE-clock-in"]
+	path = FE-clock-in
+	url = https://github.com/cesxhin/FE-clock-in.git
