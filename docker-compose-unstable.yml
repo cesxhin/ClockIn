@@ -33,7 +33,7 @@ services:
   web:
     image: kju7pwd2/clockin-webservice:latest_DEV
     restart: unless-stopped
-    container_name: web
+    container_name: webService
     env_file:
       - env/web.env
       - env/general.env
