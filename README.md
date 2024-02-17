@@ -1,3 +1,10 @@
+|Name|Status|
+| ------------- | ------------- |
+|FE-DEV|![example](https://github.com/cesxhin/FE-clock-in/actions/workflows/docker-image.yml/badge.svg?branch=develop)|
+|FE-PROD|![example](https://github.com/cesxhin/FE-clock-in/actions/workflows/docker-image.yml/badge.svg?branch=main)|
+|BE-DEV|![example](https://github.com/cesxhin/BE-clock-in/actions/workflows/docker-image.yml/badge.svg?branch=develop)|
+|BE-PROD|![example](https://github.com/cesxhin/BE-clock-in/actions/workflows/docker-image.yml/badge.svg?branch=main)|
+
 # ClockIn 🎫
 ### What'is?
 Record the hours you put in for your tasks.
