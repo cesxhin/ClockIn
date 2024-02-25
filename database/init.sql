@@ -4,7 +4,6 @@ CREATE DATABASE clockin OWNER root;
 /* account */
 CREATE TABLE IF NOT EXISTS account(
     username varchar(250) primary key not null,
-    password varchar(500) not null,
     role integer default 0
 );
 CREATE INDEX IF NOT EXISTS account_username_index ON account (username);
@@ -43,6 +42,6 @@ DO $$
 BEGIN
     IF NOT EXISTS (SELECT 1 FROM v_account) THEN
         INSERT INTO v_account
-        VALUES (1);
+        VALUES (2);
     END IF;
 END $$;
