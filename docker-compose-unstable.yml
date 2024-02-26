@@ -29,6 +29,8 @@ services:
     depends_on:
       - postgres
     hostname: api
+    networks:
+      - default
 
   web:
     image: kju7pwd2/clockin-webservice:latest_DEV
@@ -44,6 +46,17 @@ services:
     hostname: web
     networks:
       - default
+
+  notify:
+    image: kju7pwd2/clockin-notifyservice:latest_DEV
+    restart: unless-stopped
+    container_name: notifyService
+    env_file:
+      - env/notify.env
+    depends_on:
+      - postgres
+      - api
+    hostname: notify
 
 networks:
   default:
