@@ -33,3 +33,10 @@ LOG_LEVEL="Info"
 ENDPOINT_KEYCLOAK=http://127.0.0.1:8080
 REALM_KEYCLOAK=client-realm
 ```
+### Notify🔔
+```
+LOG_LEVEL="Info"
+TOKEN_BOT=token
+ENDPOINT_API=http://api:80
+TARGET_CHANNEL=channel1,channel2
+```

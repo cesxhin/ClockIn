@@ -4,7 +4,8 @@ CREATE DATABASE clockin OWNER root;
 /* account */
 CREATE TABLE IF NOT EXISTS account(
     username varchar(250) primary key not null,
-    role integer default 0
+    role integer default 0,
+    id_discord text
 );
 CREATE INDEX IF NOT EXISTS account_username_index ON account (username);
 
@@ -42,6 +43,6 @@ DO $$
 BEGIN
     IF NOT EXISTS (SELECT 1 FROM v_account) THEN
         INSERT INTO v_account
-        VALUES (2);
+        VALUES (3);
     END IF;
 END $$;
